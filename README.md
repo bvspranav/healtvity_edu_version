@@ -11,7 +11,6 @@ Healthcare Symptom Checker (Educational) is an AI-powered tool designed to assis
 
 Perfect! Here's a **GitHub-ready, concise, professional README** with badges and sections optimized for a repo landing page:
 
-````markdown
 # 🩺 Healthcare Symptom Checker (Educational)
 
 [![Python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
@@ -19,11 +18,9 @@ Perfect! Here's a **GitHub-ready, concise, professional README** with badges and
 [![Telegram](https://img.shields.io/badge/Telegram-Bot-blue)](https://core.telegram.org/bots)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-An **educational symptom checker** powered by LLMs (OpenAI / Gemini) to provide **probable conditions, recommendations, and follow-ups** based on user-reported symptoms.  
+An educational symptom checker powered by LLMs (OpenAI / Gemini) to provide probable conditions, recommendations, and follow-ups based on user-reported symptoms.  
 
-> ⚠️ **Disclaimer:** This tool is for **educational purposes only**. Not a substitute for professional medical advice.
-
----
+> ⚠️ Disclaimer: This tool is for educational purposes only. Not a substitute for professional medical advice.
 
 ## 🚀 Features
 
@@ -35,8 +32,6 @@ An **educational symptom checker** powered by LLMs (OpenAI / Gemini) to provide 
   - **FastAPI REST API**
   - **Telegram bot**
 - Supports **multiple LLMs**: OpenAI GPT, Gemini, or offline heuristics
-
----
 
 ## 🎯 Demo
 
@@ -67,8 +62,6 @@ curl -X POST "http://127.0.0.1:8000/symptom" \
 }
 ```
 
----
-
 ## ⚙️ Installation
 
 ```bash
@@ -85,8 +78,6 @@ source .venv/bin/activate    # macOS/Linux
 pip install -r requirements.txt
 ```
 
----
-
 ## 🔧 Configuration
 
 Create a `.env` file:
@@ -99,8 +90,6 @@ API_URL=http://127.0.0.1:8000
 USE_OPENAI=True
 USE_GEMINI=False
 ```
-
----
 
 ## 🏃 Running
 
@@ -116,7 +105,6 @@ python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
 python telegram_bot.py
 ```
 
----
 
 ## 🔄 Switching LLMs
 
@@ -124,11 +112,8 @@ python telegram_bot.py
 * Gemini LLM → set `USE_GEMINI=True`
 * Offline heuristic fallback → default if no LLM key is provided
 
----
-
 ## 🧰 Project Structure
 
-```
 Health Care Symptom Checker/
 ├── data  # data used for model fine-tuning
 ├── main.py             # FastAPI server
@@ -139,9 +124,7 @@ Health Care Symptom Checker/
 ├── config.py           # Settings & API keys
 ├── train.jsonl         # Optional fine-tuning dataset
 └── .env                # Environment variables
-```
 
----
 
 ## ⚠️ Disclaimer
 
