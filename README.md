@@ -9,7 +9,7 @@ Healthcare Symptom Checker (Educational) is an AI-powered tool designed to assis
 
           4. Educational Disclaimer – Clear warnings emphasizing that the tool is not medical advice.
 
-Perfect! Here's a **GitHub-ready, concise, professional README** with badges and sections optimized for a repo landing page:
+Perfect! Here's a **GitHub-ready, concise, professional README** with badges and sections optimized for a repo landing page
 
 # 🩺 Healthcare Symptom Checker (Educational)
 
@@ -60,7 +60,6 @@ curl -X POST "http://127.0.0.1:8000/symptom" \
   "follow_up": "- How long have the symptoms lasted? Any shortness of breath or chest pain?",
   "disclaimer": "This output is for educational purposes only and is NOT medical advice."
 }
-```
 
 ## ⚙️ Installation
 
