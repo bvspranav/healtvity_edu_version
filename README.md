@@ -59,9 +59,9 @@ curl -X POST "http://127.0.0.1:8000/symptom" \
   "recommendations": "- Rest, fluids, OTC symptomatic care. Seek care if high fever, breathing difficulty.",
   "follow_up": "- How long have the symptoms lasted? Any shortness of breath or chest pain?",
   "disclaimer": "This output is for educational purposes only and is NOT medical advice."
-}
+} ```
 
-## ⚙️ Installation
+⚙️ Installation
 
 ```bash
 # Clone repo
@@ -112,7 +112,7 @@ python telegram_bot.py
 * Offline heuristic fallback → default if no LLM key is provided
 
 ## 🧰 Project Structure
-
+```
 Health Care Symptom Checker/
 ├── data  # data used for model fine-tuning
 ├── main.py             # FastAPI server
@@ -123,7 +123,7 @@ Health Care Symptom Checker/
 ├── config.py           # Settings & API keys
 ├── train.jsonl         # Optional fine-tuning dataset
 └── .env                # Environment variables
-
+```
 
 ## ⚠️ Disclaimer
 
