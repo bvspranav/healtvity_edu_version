@@ -1,0 +1,92 @@
+[
+  {
+    "id": "f7a346db-b06c-4237-864e-a85fc1394b1d",
+    "timestamp": "2025-10-16T13:29:55.754531Z",
+    "user_id": "test_user_1",
+    "text": "I have cough, fever, and headache",
+    "result": {
+      "conditions": [],
+      "recommendations": "ERROR: LLM call failed:\nYou tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.\nYou can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface.\nAlternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`\nA detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742",
+      "follow_up": null,
+      "raw": "ERROR: LLM call failed: \n\nYou tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.\n\nYou can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. \n\nAlternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`\n\nA detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742\n",
+      "disclaimer": "This output is for educational purposes only and is NOT medical advice. If the person is experiencing severe or worsening symptoms (chest pain, severe shortness of breath, sudden weakness, altered consciousness, severe bleeding), seek emergency care immediately."
+    }
+  },
+  {
+    "id": "bd3addf4-fecf-41d0-a716-d979c1669536",
+    "timestamp": "2025-10-16T13:39:21.776277Z",
+    "user_id": "test_user_1",
+    "text": "I have cough, fever, and headache",
+    "result": {
+      "conditions": [],
+      "recommendations": "ERROR: LLM call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+      "follow_up": null,
+      "raw": "ERROR: LLM call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+      "disclaimer": "This output is for educational purposes only and is NOT medical advice. If the person is experiencing severe or worsening symptoms (chest pain, severe shortness of breath, sudden weakness, altered consciousness, severe bleeding), seek emergency care immediately."
+    }
+  },
+  {
+    "id": "45cf2231-aec6-45b1-b48a-1430c518ed1b",
+    "timestamp": "2025-10-16T13:43:07.569872Z",
+    "user_id": "test_user_1",
+    "text": "I have cough, fever, and headache",
+    "result": {
+      "conditions": [],
+      "recommendations": "ERROR: LLM call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+      "follow_up": null,
+      "raw": "ERROR: LLM call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+      "disclaimer": "This output is for educational purposes only and is NOT medical advice. If the person is experiencing severe or worsening symptoms (chest pain, severe shortness of breath, sudden weakness, altered consciousness, severe bleeding), seek emergency care immediately."
+    }
+  },
+  {
+    "id": "c89e5da1-d1a7-4530-8674-5218517b78a1",
+    "timestamp": "2025-10-16T13:55:17.127984Z",
+    "user_id": "1209679496",
+    "text": "I have fever and headache",
+    "result": {
+      "conditions": [],
+      "recommendations": "ERROR: LLM call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+      "follow_up": null,
+      "raw": "ERROR: LLM call failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+      "disclaimer": "This output is for educational purposes only and is NOT medical advice. If the person is experiencing severe or worsening symptoms (chest pain, severe shortness of breath, sudden weakness, altered consciousness, severe bleeding), seek emergency care immediately."
+    }
+  },
+  {
+    "id": "626df847-c749-4bf3-92e2-0f3def6130bb",
+    "timestamp": "2025-10-16T15:36:20.919363Z",
+    "user_id": "test_user_1",
+    "text": "I have cough, fever, and headache",
+    "result": {
+      "conditions": [
+        {
+          "condition": "Viral upper respiratory infection",
+          "prob": 0.6,
+          "reason": "common symptoms include cough, runny nose."
+        }
+      ],
+      "recommendations": "- Rest, fluids, OTC symptomatic care. Seek care if high fever, breathing difficulty.",
+      "follow_up": "- How long have the symptoms lasted? Any shortness of breath or chest pain? Disclaimer: This is educational information only and is NOT medical advice.",
+      "raw": "Probable conditions:\n1. Viral upper respiratory infection — 60% — common symptoms include cough, runny nose.\n\nRecommendations:\n- Rest, fluids, OTC symptomatic care. Seek care if high fever, breathing difficulty.\n\nFollow-up question:\n- How long have the symptoms lasted? Any shortness of breath or chest pain?\n\nDisclaimer: This is educational information only and is NOT medical advice.",
+      "disclaimer": "This output is for educational purposes only and is NOT medical advice. If the person is experiencing severe or worsening symptoms (chest pain, severe shortness of breath, sudden weakness, altered consciousness, severe bleeding), seek emergency care immediately."
+    }
+  },
+  {
+    "id": "4eeff08e-25e8-41c9-bc52-e9bb4a45f9bc",
+    "timestamp": "2025-10-16T15:49:35.533769Z",
+    "user_id": "1209679496",
+    "text": "I have headache, chest pain and fever",
+    "result": {
+      "conditions": [
+        {
+          "condition": "Viral upper respiratory infection",
+          "prob": 0.6,
+          "reason": "common symptoms include cough, runny nose."
+        }
+      ],
+      "recommendations": "- Rest, fluids, OTC symptomatic care. Seek care if high fever, breathing difficulty.",
+      "follow_up": "- How long have the symptoms lasted? Any shortness of breath or chest pain? Disclaimer: This is educational information only and is NOT medical advice.",
+      "raw": "Probable conditions:\n1. Viral upper respiratory infection — 60% — common symptoms include cough, runny nose.\n\nRecommendations:\n- Rest, fluids, OTC symptomatic care. Seek care if high fever, breathing difficulty.\n\nFollow-up question:\n- How long have the symptoms lasted? Any shortness of breath or chest pain?\n\nDisclaimer: This is educational information only and is NOT medical advice.",
+      "disclaimer": "This output is for educational purposes only and is NOT medical advice. If the person is experiencing severe or worsening symptoms (chest pain, severe shortness of breath, sudden weakness, altered consciousness, severe bleeding), seek emergency care immediately."
+    }
+  }
+]
