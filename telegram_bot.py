@@ -1,11 +1,10 @@
-
-
 import os
 import logging
 import requests
+import re
 from dotenv import load_dotenv
-from telegram import Update, ForceReply
-from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters, CallbackContext
+from telegram import Update
+from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 import config
 
 load_dotenv()
@@ -21,6 +20,13 @@ logging.basicConfig(
     level=logging.INFO
 )
 
+def escape_markdown(text: str) -> str:
+    """
+    Escape Telegram MarkdownV2 special characters.
+    """
+    escape_chars = r'_*[]()~`>#+-=|{}.!'
+    return re.sub(f'([{re.escape(escape_chars)}])', r'\\\1', text)
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     await update.message.reply_html(
@@ -28,18 +34,23 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 async def help_cmd(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Send symptom text like: 'I have cough, fever, and shortness of breath for 2 days'")
+    await update.message.reply_text(
+        "Send symptom text like: 'I have cough, fever, and shortness of breath for 2 days'"
+    )
 
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     txt = update.message.text
     await update.message.reply_text("Processing your symptoms... (educational use only)")
     payload = {"text": txt, "user_id": str(update.effective_user.id)}
     try:
-        r = requests.post(f"{API_URL.rstrip('/')}/symptom", json=payload, timeout=30)
+        r = requests.post(f"{API_URL.rstrip('/')}/symptom", json=payload, timeout=60)
         r.raise_for_status()
         data = r.json()
-        # Build message
+
+        # Build message sections
         lines = []
+
+        # Probable Conditions
         lines.append("*Probable conditions:*")
         conds = data.get("conditions", [])
         if conds:
@@ -49,15 +60,33 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 lines.append(f"- {c.get('condition')}{prob_txt}{reason}")
         else:
             lines.append("- (No probable conditions identified.)")
-        lines.append("\n*Recommended next steps:*")
-        lines.append(data.get("recommendations","(no recommendations)"))
-        if data.get("follow_up"):
+
+        # Recommendations
+        recs = data.get("recommendations", "").strip()
+        if recs:
+            lines.append("\n*Recommended next steps:*")
+            # Split into bullet points if there are numbered steps
+            rec_lines = re.split(r"\n\d+\. ", recs)
+            for rl in rec_lines:
+                rl = rl.strip()
+                if rl:
+                    lines.append(f"- {rl}")
+
+        # Follow-up
+        follow_up = data.get("follow_up", "").strip()
+        if follow_up:
             lines.append("\n*Follow-up question:*")
-            lines.append(data.get("follow_up"))
+            lines.append(f"- {follow_up}")
+
+        # Disclaimer
+        disclaimer = data.get("disclaimer", "This is educational only. Not medical advice.")
         lines.append("\n*Disclaimer:*")
-        lines.append(data.get("disclaimer","This is educational only. Not medical advice."))
+        lines.append(f"- {disclaimer}")
+
         message = "\n".join(lines)
-        await update.message.reply_markdown(message)
+        # Escape for MarkdownV2
+        await update.message.reply_markdown_v2(escape_markdown(message))
+
     except Exception as e:
         logging.exception("Error calling API")
         await update.message.reply_text(f"Sorry, there was an error: {e}")
